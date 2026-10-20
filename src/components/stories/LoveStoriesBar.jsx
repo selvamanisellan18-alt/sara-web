@@ -7,10 +7,10 @@ import { triggerHeartConfetti } from '../../utils/confetti';
 const storiesData = [
   {
     id: 1,
-    title: "Little Angel",
-    tagline: "Before Our Stars Aligned",
-    image: "/images/sara_real/sara_childhood.jpg",
-    caption: "The purest innocent smile. Little did the world know that this sweet girl would one day grow up and become the queen of my heart.",
+    title: "First Spark",
+    tagline: "Where It All Began",
+    image: "/images/sara_real/sara_hero.jpg",
+    caption: "That unforgettable smile and playful sparkle that captured my heart from day one. Seven years of loving you feels like the greatest blessing.",
     gradient: "from-pink-500 to-rose-500",
   },
   {

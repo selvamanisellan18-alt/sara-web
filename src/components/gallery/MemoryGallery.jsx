@@ -11,7 +11,7 @@ export default function MemoryGallery() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [flippedCards, setFlippedCards] = useState({});
 
-  const categories = ["All", "Little Angel", "Sara's Light", "Elegance", "Candid Moments", "Kindness"];
+  const categories = ["All", "Sara's Light", "Elegance", "Candid Moments", "Kindness"];
 
   const filteredPhotos = activeCategory === "All"
     ? galleryPhotos

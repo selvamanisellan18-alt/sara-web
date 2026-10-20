@@ -16,6 +16,7 @@ import MemoryGallery from './components/gallery/MemoryGallery';
 import LoveLetterSection from './components/LoveLetterSection';
 import VoiceMessageSection from './components/VoiceMessageSection';
 import VirtualGiftSection from './components/VirtualGiftSection';
+import ChildhoodSurpriseSection from './components/ChildhoodSurpriseSection';
 import SurpriseVaultSection from './components/SurpriseVaultSection';
 import FinalScreenSection from './components/FinalScreenSection';
 import PhotoUploadModal from './components/PhotoUploadModal';
@@ -173,7 +174,7 @@ export default function App() {
         const y = window.scrollY;
         sessionStorage.setItem('selva_sara_scroll_pos', y.toString());
 
-        const sectionIds = ['final', 'surprises', 'gift', 'voice', 'letter', 'gallery', 'timeline', 'love-animation', 'photo-reveal'];
+        const sectionIds = ['final', 'surprises', 'childhood-surprise', 'gift', 'voice', 'letter', 'gallery', 'timeline', 'love-animation', 'photo-reveal'];
         for (const id of sectionIds) {
           const el = document.getElementById(id);
           if (el) {
@@ -294,6 +295,9 @@ export default function App() {
 
                 {/* Step 8: Virtual Gift Opening Experience 🎁 */}
                 <VirtualGiftSection />
+
+                {/* Exclusive Secret Surprise: Little Sara's Childhood Keepsake 🌸 */}
+                <ChildhoodSurpriseSection />
 
                 {/* Step 9: Hidden Love Messages & Surprise Button */}
                 <SurpriseVaultSection />

@@ -44,7 +44,7 @@ export default function PhotoUploadModal({ isOpen, onClose, currentPhoto, onUpda
   };
 
   const presetPhotos = [
-    { label: "Little Angel Sara 🌸", url: "/images/sara_real/sara_childhood.jpg" },
+    { label: "Queen Sara 👑", url: "/images/sara_real/sara_grace.jpg" },
     { label: "Her Charming Smile", url: "/images/sara_real/sara_portrait.jpg" },
     { label: "Traditional Pink Lehenga", url: "/images/sara_real/sara_pink_lehenga.jpg" },
     { label: "Garden Sunshine Candid", url: "/images/sara_real/sara_candid.jpg" },

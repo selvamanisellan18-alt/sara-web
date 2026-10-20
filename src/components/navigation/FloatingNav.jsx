@@ -12,6 +12,7 @@ export default function FloatingNav({ onOpenPhotoModal, isMusicPlaying, onToggle
     { label: "Love Letter", href: "#letter" },
     { label: "Voice Note", href: "#voice" },
     { label: "Virtual Gift", href: "#gift" },
+    { label: "Secret Keepsake", href: "#childhood-surprise" },
     { label: "Surprises", href: "#surprises" },
     { label: "Final Screen", href: "#final" },
   ];

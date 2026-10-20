@@ -1,24 +1,5 @@
 export const galleryPhotos = [
   {
-    id: 1,
-    title: "Little Angel Sara 🌸",
-    tamilTitle: "என் உலகத்தின் தொடக்கம்",
-    subtitle: "Little Angel • Pure Innocence",
-    date: "A Timeless Keepsake",
-    category: "Little Angel",
-    src: "/images/sara_real/sara_childhood.jpg",
-    aspect: "standard",
-    caption: "The purest soul long before our paths crossed. Looking at your childhood picture, I realize my whole world was already quietly resting in those tiny eyes.",
-    kavidhai: `இந்த உலகத்துக்கு நீ அப்போ
-ஒரு அழகான குழந்தை தான்...
-ஆனா என் மனசுக்குத் தெரியும் அன்பே,
-என் மொத்த உலகமுமே
-அன்னைக்கே இந்தச் சின்ன விழிகளுக்குள்ளதான்
-ஒளிஞ்சு கிடந்திருக்கு! ✨`,
-    icon: "🌸",
-    tagline: "முதல் பார்வைக்கு முன்பே..."
-  },
-  {
     id: 2,
     title: "Her Charming Smile",
     tamilTitle: "கண்கள் பேசும் புன்னகை",

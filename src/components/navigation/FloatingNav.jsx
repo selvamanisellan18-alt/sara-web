@@ -10,7 +10,6 @@ export default function FloatingNav({ onOpenPhotoModal, isMusicPlaying, onToggle
     { label: "Our Journey", href: "#timeline" },
     { label: "Gallery", href: "#gallery" },
     { label: "Love Letter", href: "#letter" },
-    { label: "Voice Note", href: "#voice" },
     { label: "Virtual Gift", href: "#gift" },
     { label: "Secret Keepsake", href: "#childhood-surprise" },
     { label: "Surprises", href: "#surprises" },
@@ -62,10 +61,10 @@ export default function FloatingNav({ onOpenPhotoModal, isMusicPlaying, onToggle
 
         {/* Right Actions: Music Toggle & Photo Settings */}
         <div className="flex items-center space-x-2">
-          {/* Music Controller */}
+          {/* Song Controller */}
           <button
             onClick={() => onToggleMusic(!isMusicPlaying)}
-            title={isMusicPlaying ? "Mute Vaarayo Vaarayo" : "Play Vaarayo Vaarayo"}
+            title={isMusicPlaying ? "Pause Vaarayo Vaarayo" : "Play Vaarayo Vaarayo"}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center space-x-2 transition-all duration-300 border ${
               isMusicPlaying
                 ? 'bg-rose-600/30 text-rose-200 border-rose-500/50 box-glow-rose'
@@ -84,7 +83,7 @@ export default function FloatingNav({ onOpenPhotoModal, isMusicPlaying, onToggle
             ) : (
               <>
                 <Music className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline">Play Melody</span>
+                <span className="hidden sm:inline">Vaarayo Vaarayo 🎶</span>
               </>
             )}
           </button>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Sparkles, Volume2, RotateCcw, ShieldCheck } from 'lucide-react';
+import { Heart, Sparkles, RotateCcw, ShieldCheck } from 'lucide-react';
 import { triggerHeartConfetti } from '../utils/confetti';
 import { audioService } from '../utils/audioSynthesizer';
 
-export default function FinalScreenSection({ boyfriendName = "Selva", girlfriendName = "Sara", onRestartExperience, onReplayVoice }) {
+export default function FinalScreenSection({ boyfriendName = "Selva", girlfriendName = "Sara", onRestartExperience }) {
   const [reactionSent, setReactionSent] = useState(false);
   const [selectedFeeling, setSelectedFeeling] = useState(null);
 
@@ -134,14 +134,17 @@ export default function FinalScreenSection({ boyfriendName = "Selva", girlfriend
           )}
         </div>
 
-        {/* Action Controls: Replay Voice & Restart Experience */}
+        {/* Action Controls: Read Love Letter & Restart Experience */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <button
-            onClick={onReplayVoice}
+            onClick={() => {
+              const el = document.getElementById('letter');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="px-5 py-2.5 rounded-full bg-rose-500 hover:bg-rose-600 text-white shadow-md text-xs sm:text-sm font-semibold flex items-center space-x-2 transition"
           >
-            <Volume2 className="w-4 h-4 text-amber-200" />
-            <span>Listen to Voice Message Again</span>
+            <Heart className="w-4 h-4 fill-white text-white animate-heartbeat" />
+            <span>Read Love Letter Again 💌</span>
           </button>
 
           <button

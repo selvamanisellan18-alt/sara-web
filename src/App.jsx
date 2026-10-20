@@ -14,7 +14,6 @@ import LoveAnimation from './components/love-animation/LoveAnimation';
 import TimelineSection from './components/TimelineSection';
 import MemoryGallery from './components/gallery/MemoryGallery';
 import LoveLetterSection from './components/LoveLetterSection';
-import VoiceMessageSection from './components/VoiceMessageSection';
 import VirtualGiftSection from './components/VirtualGiftSection';
 import ChildhoodSurpriseSection from './components/ChildhoodSurpriseSection';
 import SurpriseVaultSection from './components/SurpriseVaultSection';
@@ -127,11 +126,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleScrollToVoice = () => {
-    const el = document.getElementById('voice');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   // Restore scroll position or active section on refresh
   useEffect(() => {
     if (isAuthenticated && hasOpenedHeart) {
@@ -174,7 +168,7 @@ export default function App() {
         const y = window.scrollY;
         sessionStorage.setItem('selva_sara_scroll_pos', y.toString());
 
-        const sectionIds = ['final', 'surprises', 'childhood-surprise', 'gift', 'voice', 'letter', 'gallery', 'timeline', 'love-animation', 'photo-reveal'];
+        const sectionIds = ['final', 'surprises', 'childhood-surprise', 'gift', 'letter', 'gallery', 'timeline', 'love-animation', 'photo-reveal'];
         for (const id of sectionIds) {
           const el = document.getElementById(id);
           if (el) {
@@ -240,16 +234,16 @@ export default function App() {
           {/* Main 10-Step Experience (Visible after Welcome Screen is unlocked) */}
           {hasOpenedHeart && (
             <>
-              {/* Subtle Floating Romantic Controls (Melody + Logout) */}
+              {/* Subtle Floating Romantic Controls (Vaarayo Vaarayo + Logout) */}
               <div className="fixed top-4 right-4 z-40 flex items-center space-x-2">
                 <button
                   onClick={() => handleToggleMusic(!isMusicPlaying)}
                   className="px-3.5 py-1.5 rounded-full bg-white/95 border border-rose-300 shadow-md text-rose-700 hover:bg-rose-50 transition-all flex items-center space-x-2 backdrop-blur-md active:scale-95"
-                  title="Toggle Vaarayo Vaarayo Song"
+                  title="Vaarayo Vaarayo (Aadhavan)"
                 >
                   <span className={`w-2 h-2 rounded-full ${isMusicPlaying ? 'bg-rose-500 animate-ping' : 'bg-rose-300'}`} />
                   <span className="font-caveat text-xl font-bold">
-                    {isMusicPlaying ? 'Vaarayo Vaarayo 🎵' : 'Play Melody 🎶'}
+                    {isMusicPlaying ? 'Vaarayo Vaarayo 🎵' : 'Vaarayo Vaarayo 🎶'}
                   </span>
                 </button>
 
@@ -263,10 +257,10 @@ export default function App() {
                 </button>
               </div>
 
-              {/* 10-Step Sequential Experience Flow */}
+              {/* Sequential Experience Flow */}
               <main className="relative z-10 flex flex-col pt-8 sm:pt-12 space-y-8 sm:space-y-16 pb-24 sm:pb-16">
                 
-                {/* Step 2: Cinematic Photo Reveal */}
+                {/* Step 1: Cinematic Photo Reveal */}
                 <PhotoReveal
                   photoUrl={girlfriendPhoto}
                   onOpenPhotoModal={() => setIsPhotoModalOpen(true)}
@@ -275,39 +269,32 @@ export default function App() {
                 {/* Mobile & App-Style Story Highlights: Sara's 7 Years Memories */}
                 <LoveStoriesBar />
 
-                {/* Step 3: Animated I LOVE YOU Section */}
+                {/* Step 2: Animated I LOVE YOU Section */}
                 <LoveAnimation />
 
-                {/* Step 4: Our 7 Years of Love Relationship Timeline */}
+                {/* Step 3: Our 7 Years of Love Relationship Timeline */}
                 <TimelineSection />
 
-                {/* Step 5: Interactive Memory Gallery with Lightbox */}
+                {/* Step 4: Interactive Memory Gallery with Lightbox */}
                 <MemoryGallery />
 
-                {/* Step 6: Digital Love Letter with Typewriter Animation */}
+                {/* Step 5: Digital Love Letter with Typewriter Animation */}
                 <LoveLetterSection />
 
-                {/* Step 7: My Voice Message (“🎙️ Click Here to Hear My Voice”) */}
-                <VoiceMessageSection
-                  boyfriendName={siteConfig.boyfriendName}
-                  girlfriendName={siteConfig.girlfriendName}
-                />
-
-                {/* Step 8: Virtual Gift Opening Experience 🎁 */}
+                {/* Step 6: Virtual Gift Opening Experience 🎁 */}
                 <VirtualGiftSection />
 
                 {/* Exclusive Secret Surprise: Little Sara's Childhood Keepsake 🌸 */}
                 <ChildhoodSurpriseSection />
 
-                {/* Step 9: Hidden Love Messages & Surprise Button */}
+                {/* Step 7: Hidden Love Messages & Surprise Button */}
                 <SurpriseVaultSection />
 
-                {/* Step 10: Final Surprise Screen */}
+                {/* Step 8: Final Surprise Screen */}
                 <FinalScreenSection
                   boyfriendName={siteConfig.boyfriendName}
                   girlfriendName={siteConfig.girlfriendName}
                   onRestartExperience={handleRestartExperience}
-                  onReplayVoice={handleScrollToVoice}
                 />
 
               </main>

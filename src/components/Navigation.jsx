@@ -8,9 +8,9 @@ export default function Navigation({ onOpenPhotoModal, isBgmPlaying, onToggleBgm
   const navItems = [
     { label: "Our Story", href: "#hero" },
     { label: "Our Journey", href: "#timeline" },
-    { label: "My Voice", href: "#voice" },
     { label: "Love Letter", href: "#letter" },
     { label: "Virtual Gift", href: "#gift" },
+    { label: "Secret Keepsake", href: "#childhood-surprise" },
     { label: "Surprises", href: "#surprises" },
   ];
 
@@ -58,10 +58,10 @@ export default function Navigation({ onOpenPhotoModal, isBgmPlaying, onToggleBgm
 
         {/* Actions: Photo Upload & Audio Player Toggle */}
         <div className="flex items-center space-x-2.5">
-          {/* Ambient BGM Button with equalizer bars */}
+          {/* Ambient Song Button with equalizer bars */}
           <button
             onClick={onToggleBgm}
-            title={isBgmPlaying ? "Mute Ambient Romantic Melody" : "Play Ambient Romantic Melody"}
+            title={isBgmPlaying ? "Pause Vaarayo Vaarayo" : "Play Vaarayo Vaarayo"}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center space-x-2 transition-all duration-300 border ${
               isBgmPlaying 
                 ? 'bg-rose-600/30 text-rose-200 border-rose-500/50 box-glow-rose' 
@@ -75,12 +75,12 @@ export default function Navigation({ onOpenPhotoModal, isBgmPlaying, onToggleBgm
                   <span className="w-0.5 bg-rose-400 rounded-full h-2 animate-pulse" style={{ animationDelay: '0.2s' }} />
                   <span className="w-0.5 bg-rose-400 rounded-full h-3.5 animate-pulse" style={{ animationDelay: '0.4s' }} />
                 </div>
-                <span className="hidden sm:inline">Music Playing</span>
+                <span className="hidden sm:inline">Vaarayo Vaarayo 🎵</span>
               </>
             ) : (
               <>
                 <Music className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline">Play Melody</span>
+                <span className="hidden sm:inline">Vaarayo Vaarayo 🎶</span>
               </>
             )}
           </button>

@@ -3,10 +3,9 @@ export const siteConfig = {
   girlfriendName: "Thenmozhi",
   nickname: "Sara",
   loveStartDate: "2019-10-20",
-  title: "Site Project",
+  title: "Sara Web",
   subtitle: "Every heartbeat, every memory, every tomorrow — forever grateful for you, Thenmozhi.",
   heroPhoto: "/images/sara_portrait.jpg",
-  voiceAudioSrc: "/audio/my-voice.mp3",
   bgmAudioSrc: "/audio/vaarayo-vaarayo.mp3",
   bgmSongTitle: "Vaarayo Vaarayo (Aadhavan)",
   

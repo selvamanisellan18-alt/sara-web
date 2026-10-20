@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Calendar, Mic, ScrollText, Gift, Sparkles } from 'lucide-react';
+import { Heart, Calendar, ScrollText, Gift, Sparkles } from 'lucide-react';
 import { audioService } from '../../utils/audioSynthesizer';
 
 export default function MobileAppDock() {
@@ -9,10 +9,10 @@ export default function MobileAppDock() {
   const dockItems = [
     { id: 'hero', label: 'Story', icon: Heart, href: '#photo-reveal' },
     { id: 'timeline', label: 'Timeline', icon: Calendar, href: '#timeline' },
-    { id: 'voice', label: 'Voice', icon: Mic, href: '#voice' },
     { id: 'letter', label: 'Letter', icon: ScrollText, href: '#letter' },
     { id: 'gift', label: 'Gift', icon: Gift, href: '#gift' },
-    { id: 'surprises', label: 'Surprise', icon: Sparkles, href: '#surprises' },
+    { id: 'childhood-surprise', label: 'Keepsake', icon: Sparkles, href: '#childhood-surprise' },
+    { id: 'surprises', label: 'Surprise', icon: Heart, href: '#surprises' },
   ];
 
   const handleItemClick = (href, id) => {

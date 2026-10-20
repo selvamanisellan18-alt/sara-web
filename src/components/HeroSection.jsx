@@ -206,14 +206,6 @@ export default function HeroSection({ girlfriendPhoto, onOpenVoice, onOpenLetter
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-2"
         >
-          <a
-            href="#voice"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold text-sm sm:text-base flex items-center space-x-2 shadow-lg shadow-rose-600/30 hover:shadow-rose-500/50 hover:scale-105 active:scale-95 transition-all duration-300"
-            onClick={() => audioService.playChime('sweet')}
-          >
-            <Volume2 className="w-4 h-4 text-amber-200 animate-pulse" />
-            <span>Hear My Voice Message</span>
-          </a>
 
           <a
             href="#letter"

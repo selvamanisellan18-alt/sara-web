@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(244, 114, 182, 0.25);
+  }
+  
+  body {
+    /* Light pink-la irunthu white-kku smooth-a fade aagum effect */
+    background: linear-gradient(to bottom, #fdf1f0 0%, #ffffff 70%);
+    min-height: 100vh;
+    margin: 0;
+    color: #4a2c2a;
+    overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* User's Exact Caveat Handwritten Styles */
+.love-letter-text {
+  font-family: 'Caveat', cursive; /* Indha font thaan andha mass look tharum */
+  font-size: clamp(28px, 6vw, 44px);
+  color: #4a2c2a; /* Dark reddish brown color */
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.love-letter-text .small-text {
+  font-size: clamp(18px, 4vw, 26px);
+  color: #785350;
+  font-weight: 500;
+}
+
+.font-caveat {
+  font-family: 'Caveat', cursive !important;
+}
+
+/* Poetic Handwritten Tamil Font for Love Letter */
+.font-tamil-letter {
+  font-family: 'Kavivanar', 'Arima Madurai', 'Caveat', cursive, sans-serif !important;
+  line-height: 1.8;
+}
+
+/* Custom Soft Romantic Aesthetic Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf1f0;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f472b6, #e11d48);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #fb7185, #be123c);
+}
+
+/* Aesthetic Light Glassmorphism with Soft Glowing Borders */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 114, 182, 0.35);
+  box-shadow: 0 16px 40px rgba(225, 29, 72, 0.08), 0 0 25px rgba(253, 164, 175, 0.25);
+}
+
+/* Edge Fade Effect using Mask Image (User Requested) */
+.edge-fade-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* 3D Vertical Flip Card CSS (User's Exact Specification) */
+.flip-card {
+  background-color: transparent;
+  perspective: 1200px; /* 3D effect create panna */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+/* Hover aagum pothu vertical aaga flip aaganum (rotateX) */
+.flip-card:hover .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Pinpakkam theriyama irukka */
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateX(180deg);
+}
+
+.glass-panel-blinking {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: borderBlink 2.2s ease-in-out infinite;
+}
+
+.glass-panel-rose {
+  background: linear-gradient(135deg, rgba(255, 241, 242, 0.9) 0%, rgba(255, 255, 255, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(244, 114, 182, 0.4);
+  box-shadow: 0 20px 50px rgba(225, 29, 72, 0.1), 0 0 30px rgba(253, 164, 175, 0.3);
+}
+
+/* Glowing Border Effect for Screen Edges */
+@keyframes borderBlink {
+  0%, 100% {
+    border-color: rgba(244, 114, 182, 0.4);
+    box-shadow: 0 0 15px rgba(244, 114, 182, 0.35);
+  }
+  50% {
+    border-color: rgba(225, 29, 72, 0.9);
+    box-shadow: 0 0 30px rgba(225, 29, 72, 0.65);
+  }
+}
+
+.screen-border-glow {
+  box-shadow: inset 0 0 30px rgba(244, 114, 182, 0.25), 0 0 20px rgba(225, 29, 72, 0.15);
+}
+
+/* Aesthetic Shimmer Text */
+.shimmer-text-romantic {
+  background: linear-gradient(
+    90deg,
+    #4a2c2a 0%,
+    #e11d48 30%,
+    #d97706 50%,
+    #e11d48 70%,
+    #4a2c2a 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Parchment Letter Paper */
+.parchment-aesthetic {
+  background-color: #fffaf7;
+  background-image: 
+    radial-gradient(#f0d6cc 1px, transparent 1px),
+    radial-gradient(#f0d6cc 1px, #fffaf7 1px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* ========================================================
+   MASS LUXURY 3D HEART & BLINKING SPARKLE ANIMATIONS
+   ======================================================== */
+@keyframes heartbeatMass {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(225, 29, 72, 0.45));
+  }
+  14% {
+    transform: scale(1.22);
+    filter: drop-shadow(0 0 28px rgba(225, 29, 72, 0.95)) drop-shadow(0 0 50px rgba(251, 113, 133, 0.65));
+  }
+  28% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 18px rgba(225, 29, 72, 0.6));
+  }
+  42% {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 24px rgba(225, 29, 72, 0.85));
+  }
+  56% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(225, 29, 72, 0.45));
+  }
+}
+
+.animate-heartbeat-mass {
+  animation: heartbeatMass 1.6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center center;
+}
+
+@keyframes blinkTwinkle {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.65) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3) rotate(180deg);
+    filter: drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 14px #fb7185);
+  }
+}
+
+.animate-blink-twinkle-1 {
+  animation: blinkTwinkle 1.8s ease-in-out infinite;
+}
+.animate-blink-twinkle-2 {
+  animation: blinkTwinkle 1.8s ease-in-out infinite;
+  animation-delay: 0.45s;
+}
+.animate-blink-twinkle-3 {
+  animation: blinkTwinkle 1.8s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+.animate-blink-twinkle-4 {
+  animation: blinkTwinkle 1.8s ease-in-out infinite;
+  animation-delay: 1.35s;
+}
+.animate-blink-twinkle-5 {
+  animation: blinkTwinkle 1.8s ease-in-out infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes ripplePulseWave {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+    border-color: rgba(244, 63, 94, 0.8);
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+    border-color: rgba(251, 113, 133, 0);
+  }
+}
+
+.animate-ripple-wave-1 {
+  animation: ripplePulseWave 3s cubic-bezier(0.1, 0.4, 0.6, 1) infinite;
+}
+.animate-ripple-wave-2 {
+  animation: ripplePulseWave 3s cubic-bezier(0.1, 0.4, 0.6, 1) infinite;
+  animation-delay: 1s;
+}
+.animate-ripple-wave-3 {
+  animation: ripplePulseWave 3s cubic-bezier(0.1, 0.4, 0.6, 1) infinite;
+  animation-delay: 2s;
+}
+
+@keyframes rotateOrbitSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-rotate {
+  animation: rotateOrbitSlow 18s linear infinite;
+}
+.animate-orbit-reverse {
+  animation: rotateOrbitSlow 22s linear infinite reverse;
+}
+

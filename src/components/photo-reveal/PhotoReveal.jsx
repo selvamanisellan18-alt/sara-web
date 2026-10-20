@@ -75,11 +75,11 @@ export default function PhotoReveal({ photoUrl, onOpenPhotoModal }) {
                 style={{ backgroundImage: `url(${photoUrl})` }}
               />
 
-              {/* Complete Uncropped Photo (Zoomed Out to show full image) */}
+              {/* Elegantly Framed Portrait Photo */}
               <img
                 src={photoUrl}
                 alt="Thenmozhi (Sara)"
-                className={`relative z-10 w-full h-full object-contain p-1.5 transition-all duration-1000 ${
+                className={`relative z-10 w-full h-full object-cover object-top rounded-[1.9rem] transition-all duration-1000 ${
                   isRevealed
                     ? 'filter-none scale-100'
                     : 'filter blur-2xl grayscale scale-105 opacity-30'

@@ -134,7 +134,7 @@ export default function VirtualGiftSection() {
                       <img
                         src={activeGift.image}
                         alt={activeGift.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700"
                       />
                     </div>
                   ) : (

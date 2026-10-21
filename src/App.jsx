@@ -22,18 +22,65 @@ import PhotoUploadModal from './components/PhotoUploadModal';
 import { siteConfig } from './data/siteConfig';
 import { audioService } from './utils/audioSynthesizer';
 
+// Helper to detect if the page load is an in-tab refresh / reload
+const isReloadNavigation = () => {
+  try {
+    const navEntries = performance.getEntriesByType('navigation');
+    if (navEntries && navEntries.length > 0) {
+      return navEntries[0].type === 'reload';
+    }
+    if (window.performance && window.performance.navigation) {
+      return window.performance.navigation.type === 1; // TYPE_RELOAD
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+  return false;
+};
+
+// Check reload once when the application script initializes
+const isPageReload = isReloadNavigation();
+
+// Proactively clear legacy permanent localStorage keys so returning visitors are never auto-logged in
+try {
+  localStorage.removeItem('forever_us_authenticated');
+  localStorage.removeItem('forever_us_has_opened_heart');
+} catch (e) {
+  console.warn(e);
+}
+
+// If this is a fresh visit or returning from outside the link (not a reload),
+// reset session state and remove any lingering hash so it starts at the login page
+if (!isPageReload) {
+  try {
+    sessionStorage.removeItem('forever_us_authenticated');
+    sessionStorage.removeItem('forever_us_has_opened_heart');
+    sessionStorage.removeItem('selva_sara_scroll_pos');
+    sessionStorage.removeItem('selva_sara_active_section');
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Only restore authentication on a page reload in the same active session
+    if (!isPageReload) return false;
     try {
-      return localStorage.getItem('forever_us_authenticated') === 'true';
+      return sessionStorage.getItem('forever_us_authenticated') === 'true';
     } catch (e) {
       return false;
     }
   });
 
   const [hasOpenedHeart, setHasOpenedHeart] = useState(() => {
+    // Only restore heart open state on a page reload in the same active session
+    if (!isPageReload) return false;
     try {
-      return localStorage.getItem('forever_us_has_opened_heart') === 'true';
+      return sessionStorage.getItem('forever_us_has_opened_heart') === 'true';
     } catch (e) {
       return false;
     }
@@ -57,7 +104,7 @@ export default function App() {
   const handleAuthenticated = () => {
     setIsAuthenticated(true);
     try {
-      localStorage.setItem('forever_us_authenticated', 'true');
+      sessionStorage.setItem('forever_us_authenticated', 'true');
     } catch (e) {
       console.warn(e);
     }
@@ -66,7 +113,7 @@ export default function App() {
   const handleOpenHeart = () => {
     setHasOpenedHeart(true);
     try {
-      localStorage.setItem('forever_us_has_opened_heart', 'true');
+      sessionStorage.setItem('forever_us_has_opened_heart', 'true');
     } catch (e) {
       console.warn(e);
     }
@@ -101,9 +148,12 @@ export default function App() {
   const handleRestartExperience = () => {
     setHasOpenedHeart(false);
     try {
-      localStorage.removeItem('forever_us_has_opened_heart');
+      sessionStorage.removeItem('forever_us_has_opened_heart');
       sessionStorage.removeItem('selva_sara_scroll_pos');
       sessionStorage.removeItem('selva_sara_active_section');
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
     } catch (e) {
       console.warn(e);
     }
@@ -114,8 +164,13 @@ export default function App() {
     try {
       localStorage.removeItem('forever_us_authenticated');
       localStorage.removeItem('forever_us_has_opened_heart');
+      sessionStorage.removeItem('forever_us_authenticated');
+      sessionStorage.removeItem('forever_us_has_opened_heart');
       sessionStorage.removeItem('selva_sara_scroll_pos');
       sessionStorage.removeItem('selva_sara_active_section');
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
     } catch (e) {
       console.warn(e);
     }

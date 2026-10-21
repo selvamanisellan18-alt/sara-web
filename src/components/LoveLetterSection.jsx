@@ -9,17 +9,15 @@ export default function LoveLetterSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(22); // ms per char
+  const [typingSpeed, setTypingSpeed] = useState(16); // ms per char (smooth & engaging)
 
   const letter = siteConfig.loveLetterTamil || siteConfig.loveLetter;
   const fullText = [
     letter.greeting,
-    "",
     ...letter.paragraphs,
-    "",
     letter.closing,
     letter.signature
-  ].join("\n\n");
+  ].filter(Boolean).join("\n\n");
 
   const typingIndexRef = useRef(0);
   const typingTimerRef = useRef(null);
